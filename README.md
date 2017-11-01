@@ -1,7 +1,7 @@
 # My8Puzzle
 
 ## what's this?
-A game developed with algs.jar.  
+A game developed with algs.jar
 there are some pics of it. :)
 ![](https://github.com/StephenHuge/Markdown_Pic/blob/master/Java/Game/8Puzzle/game.jpg?raw=true)
 ## how to start?
