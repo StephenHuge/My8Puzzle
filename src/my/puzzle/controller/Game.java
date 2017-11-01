@@ -62,7 +62,7 @@ public class Game {
             for (int col = 1; col <= n; col++) {
                 int num = board.blockz[(row - 1) * n + (col - 1)] - 48;
                 if (num == 0)   StdDraw.setPenColor(StdDraw.BLACK);
-                else            StdDraw.setPenColor(StdDraw.WHITE);
+                else            StdDraw.setPenColor(StdDraw.YELLOW);
 
                 StdDraw.filledSquare(col - 0.5, n - row + 0.5, 0.48);
                 StdDraw.setFont(new Font("SansSerif", Font.PLAIN, 70));
