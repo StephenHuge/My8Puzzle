@@ -79,5 +79,35 @@ public class Ground {
         Board board = new Board(blocks);
         draw(board, n);
         StdDraw.show();
+        
+        while (true) {
+            if (StdDraw.isKeyPressed(0x25)) {
+                
+            }
+        }
     }
+    /**
+     * Constant for the non-numpad <b>left</b> arrow key.
+     * @see #VK_KP_LEFT
+     */
+    public static final int VK_LEFT           = 0x25;
+
+    /**
+     * Constant for the non-numpad <b>up</b> arrow key.
+     * @see #VK_KP_UP
+     */
+    public static final int VK_UP             = 0x26;
+
+    /**
+     * Constant for the non-numpad <b>right</b> arrow key.
+     * @see #VK_KP_RIGHT
+     */
+    public static final int VK_RIGHT          = 0x27;
+
+    /**
+     * Constant for the non-numpad <b>down</b> arrow key.
+     * @see #VK_KP_DOWN
+     */
+    public static final int VK_DOWN           = 0x28;
+
 }
