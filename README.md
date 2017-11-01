@@ -1,2 +1,20 @@
 # My8Puzzle
+
+## what's this?
 A game developed with algs.jar
+there are some pics of it. :)
+![](https://github.com/StephenHuge/Markdown_Pic/blob/master/Java/Game/8Puzzle/game.jpg?raw=true)
+## how to start?
+1. use `git clone ` to local.
+    ```
+        git clone git@github.com:StephenHuge/My8Puzzle.git
+    ```
+2. My IDE is Eclipse, `file` -> `import..`, then choose this project's directory.
+3. get `/src/my/puzzle/controller/Game.java`, `run as Java Application`.
+4. just enjoy it.
+
+## Other Words
+There are still some problems, if you find some, I will sincerely appreciate if you contact me.  
+My E-mail is : 407410014@qq.com
+
+More functions is under construction...
