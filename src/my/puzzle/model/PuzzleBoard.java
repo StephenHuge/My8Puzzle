@@ -1,4 +1,6 @@
 package my.puzzle.model;
+
+import edu.princeton.cs.algs4.Queue;
 import my.puzzle.state.GamingState;
 import my.puzzle.state.GoalState;
 import my.puzzle.state.InitialState;
@@ -42,6 +44,8 @@ public class PuzzleBoard {
     private int manhattan;
 
     private int score = 0;
+
+    private Queue<PuzzleBoard> neighbors;
 
     public PuzzleBoard(int[][] blocks) {
         initial = new InitialState(this);
@@ -194,5 +198,61 @@ public class PuzzleBoard {
 
     public static void main(String[] args) {
 
+    }
+
+    public PuzzleBoard twin() {
+            int p1 = 0;
+            int p2 = n * n - 1;
+            if (blockz[p1] == '0') p1++;
+            if (blockz[p2] == '0') p2--;
+
+            exch(p1, p2);       // swap entry by indexes
+            PuzzleBoard twin = new PuzzleBoard(getArray(blockz));
+            exch(p2, p1);   // swap back for another use    
+            return twin;
+    }
+
+    private int[][] getArray(char[] blockz2) {
+        int[][] blocks = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                blocks[i][j] =  blockz2[i * n + j] - TRANS;
+            }
+        }
+        return blocks;
+    }
+
+    public Iterable<PuzzleBoard> neighbors() {
+        if (neighbors == null) {
+            neighbors = generateNeighbors();
+        }
+        return neighbors;
+    }
+    private Queue<PuzzleBoard> generateNeighbors() {
+        Queue<PuzzleBoard> mNeighbors = new Queue<>();
+        int x = vacancy / n;    // axis of vacancy block, like n = 3, 5 --> (1, 2)
+        int y = vacancy % n;
+
+        if (x != 0) {      
+            exch(vacancy, vacancy - n);   
+            mNeighbors.enqueue(new PuzzleBoard(getArray(blockz)));
+            exch(vacancy - n, vacancy);   
+        }
+        if (x != n - 1) {       
+            exch(vacancy, vacancy + n);       // swap entry in vacancy and its upper
+            mNeighbors.enqueue(new PuzzleBoard(getArray(blockz)));
+            exch(vacancy + n, vacancy);   // swap back for another use    
+        }
+        if (y != 0) {       
+            exch(vacancy, vacancy - 1);       
+            mNeighbors.enqueue(new PuzzleBoard(getArray(blockz)));
+            exch(vacancy - 1, vacancy);   
+        }
+        if (y != n - 1) {
+            exch(vacancy, vacancy + 1);   
+            mNeighbors.enqueue(new PuzzleBoard(getArray(blockz)));
+            exch(vacancy + 1, vacancy);   
+        }
+        return mNeighbors;   
     }
 }
