@@ -28,7 +28,7 @@ import my.puzzle.state.GoalState;
 public class Game {
 
     // delay in miliseconds (controls animation speed)
-    private static final int DELAY =200;
+    private static final int DELAY = 200;
     /**
      * Constant for the non-numpad <b>left</b> arrow key.
      */
