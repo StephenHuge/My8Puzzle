@@ -1,5 +1,7 @@
 package my.puzzle.controller;
 
+import java.awt.Color;
+
 /******************************************************************************
  *  Compilation:  javac PercolationVisualizer.java
  *  Execution:    java PercolationVisualizer input.txt
@@ -29,30 +31,26 @@ public class Game {
 
     // delay in miliseconds (controls animation speed)
     private static final int DELAY = 200;
-    /**
-     * Constant for the non-numpad <b>left</b> arrow key.
-     */
+    
+    
+//    private static final Color BLOCK = new Color(174, 221, 129);
+//    private static final Color BLOCK = new Color(175, 215, 237);      // not bad
+//    private static final Color BLOCK = new Color(219, 207, 202);
+    
+    private static final Color BLACKGROUND = new Color(185, 227, 217);
+    private static final Color BLOCK = new Color(173, 195, 192);
+    private static final Color FONT = new Color(87, 96, 105);
+    
+    
     public static final int VK_LEFT           = 0x25;
-
-    /**
-     * Constant for the non-numpad <b>up</b> arrow key.
-     */
     public static final int VK_UP             = 0x26;
-
-    /**
-     * Constant for the non-numpad <b>right</b> arrow key.
-     */
     public static final int VK_RIGHT          = 0x27;
-
-    /**
-     * Constant for the non-numpad <b>down</b> arrow key.
-     */
     public static final int VK_DOWN           = 0x28;
 
     // draw n-by-n percolation system
     public static void draw(PuzzleBoard board, int n) {
         StdDraw.clear();
-        StdDraw.setPenColor(StdDraw.BLACK);
+        StdDraw.setPenColor(BLACKGROUND);
         StdDraw.setXscale(-0.05*n, 1.05*n);
         StdDraw.setYscale(-0.05*n, 1.05*n);   // leave a border to write text
         StdDraw.filledSquare(n/2.0, n/2.0, n/2.0);
@@ -61,13 +59,14 @@ public class Game {
         for (int row = 1; row <= n; row++) {
             for (int col = 1; col <= n; col++) {
                 int num = board.blockz[(row - 1) * n + (col - 1)] - 48;
-                if (num == 0)   StdDraw.setPenColor(StdDraw.BLACK);
-                else            StdDraw.setPenColor(StdDraw.YELLOW);
+                if (num == 0)   StdDraw.setPenColor(BLACKGROUND);
+                else            StdDraw.setPenColor(BLOCK);
 
-                StdDraw.filledSquare(col - 0.5, n - row + 0.5, 0.48);
+                StdDraw.filledSquare(col - 0.5, n - row + 0.5, 0.499);
                 StdDraw.setFont(new Font("SansSerif", Font.PLAIN, 70));
-                StdDraw.setPenColor(StdDraw.BLACK);
-                StdDraw.text(col - 0.5, n - row + 0.5, num +"");
+                StdDraw.setPenColor(FONT);
+                if (num != 0)
+                    StdDraw.text(col - 0.5, n - row + 0.5, num +"");
                 //                System.out.println(String.format("(%d, %d) --> %d", row, col, num));
             }
         }
