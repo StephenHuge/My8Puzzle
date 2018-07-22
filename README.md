@@ -13,7 +13,6 @@ there are some pics of it. :)
 3. get `/src/my/puzzle/controller/Game.java`, `run as Java Application`.
 4. use key `UP`, `DOWN`, `LEFT` and `RIGHT` to control, try to get numbers sorted ascending. Just enjoy it.
 ## Other Words
-There are still some problems, if you find some, I will sincerely appreciate if you contact me.  
-My E-mail is : 407410014@qq.com
+There are still some problems, if you find some, I will sincerely appreciate it.
 
 More functions is under construction...
